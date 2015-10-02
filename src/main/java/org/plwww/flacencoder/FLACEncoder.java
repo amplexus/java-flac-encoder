@@ -162,9 +162,9 @@ public class FLACEncoder {
    * encoding will be done with the main thread. Otherwise, any encode methods
    * will return while the encode actually takes place in a separate thread.
    *
-   * @param count Number of encoding threads to use. Count > 0 means use that
+   * @param count Number of encoding threads to use. Count &gt; 0 means use that
    * many independent encoding threads, count == 0 means encode in main thread,
-   * count < 0 is ignored.
+   * count &lt; 0 is ignored.
    *
    * @return boolean value represents whether requested count was applied or
    * not. This may be false if a FLAC stream is currently opened.
@@ -382,10 +382,6 @@ public class FLACEncoder {
    * @param count Number of interchannel samples to add. For example, with
    * stero: if this is 4000, then "samples" must contain 4000 left samples and
    * 4000 right samples, interleaved in the array.
-   *
-   * @return true if samples were added, false otherwise. A value of false may
-   * result if "count" is set to a size that is too large to be valid with the
-   * given array and current configuration.
    */
   public void addSamples(int[] samples, int count) {
     assert(count*streamConfig.getChannelCount() <= samples.length);
@@ -476,10 +472,10 @@ public class FLACEncoder {
   /**
    * Attempt to Encode a certain number of samples(threaded version).
    * Encodes as close to count as possible. Uses multiple threads to speed up
-   * encoding. If getThreadCount() <= 0, simply calls the non-threaded version,
+   * encoding. If getThreadCount() &le; 0, simply calls the non-threaded version,
    * encodeSamples(...), and blocks until it returns.
    *
-   * @param count number of samples to attempt to encode. Actual number
+   * @param inCount number of samples to attempt to encode. Actual number
    * encoded may be greater or less if count does not end on a block boundary.
    * If "end" is false, we may set this value to something absurdly high, such
    * as Integer.MAX_VALUE to ensure all available, full blocks are encoded.
@@ -496,7 +492,7 @@ public class FLACEncoder {
    * requested count if count does not end on a block boundary. This is NOT an
    * error condition. If end was set "true", and returned count is less than
    * requested count, then end was NOT done, if you still wish to end stream,
-   * call this again with end true and a count of of <= samplesAvailableToEncode()
+   * call this again with end true and a count of of &le; samplesAvailableToEncode()
    *
    * @throws IOException if there was an error writing the results to output
    * stream.
@@ -572,7 +568,8 @@ public class FLACEncoder {
    * requested count if count does not end on a block boundary. This is NOT an
    * error condition. If end was set "true", and returned count is less than
    * requested count, then end was NOT done, if you still wish to end stream,
-   * call this again with end true and a count of of <= samplesAvailableToEncode()
+   * call this again with end true and a count of of &le; samplesAvailableToEncode()
+   *
    * @throws IOException if there was an error writing the results to file.
    */
   public int encodeSamples(int count, final boolean end) throws IOException {

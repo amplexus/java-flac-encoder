@@ -30,9 +30,9 @@ package org.plwww.flacencoder;
 public class EncodingConfiguration implements Cloneable {
 
   /**
-   * Defines the options for channel configuration to use. LEFT & RIGHT
-   * channels refers to stereo audio as expected. INDEPENDENT channels refer to
-   * each channel encoded separately. SIDE channel is the difference of the
+   * Defines the options for channel configuration to use. 
+   * LEFT and RIGHT channels refers to stereo audio as expected. INDEPENDENT channels 
+   * refer to each channel encoded separately. SIDE channel is the difference of the
    * LEFT and RIGHT channels(LEFT-RIGHT). MID channel is the integer average of
    * LEFT and RIGHT channels( (LEFT+RIGHT)/2 ). Options using MID and/or SIDE
    * channels may benefit encoding by taking advantage of similarities between

@@ -135,7 +135,7 @@ public class Frame {
    * @param skip      the number of indices to skip between successive samples
    *                  (for use when channels are interleaved in the given
    *                  array).
-   * @param data      the EncodedElement to attach encoded data to. Data in
+   * @param result    the EncodedElement to attach encoded data to. Data in
    *                  Encoded Element given is not altered. New data is
    *                  attached starting with “data.getNext()”. If “data”
    *                  already has a “next” set, it will be lost!
@@ -273,7 +273,7 @@ public class Frame {
    * @param skip      the number of indices to skip between successive samples
    *                  (for use when channels are interleaved in the given
    *                  array).
-   * @param data      the EncodedElement to attach encoded data to. Data in
+   * @param result    the EncodedElement to attach encoded data to. Data in
    *                  Encoded Element given is not altered. New data is
    *                  attached starting with “data.getNext()”. If “data”
    *                  already has a “next” set, it will be lost!

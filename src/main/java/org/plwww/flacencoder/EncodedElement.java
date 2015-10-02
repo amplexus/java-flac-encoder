@@ -212,8 +212,7 @@ public class EncodedElement {
   /**
    * Get the byte array stored by this object(null if not set).
    *
-   * @param byte[]    the data stored in this byte[] is likely not all usable.
-   *                  Method getUsableBits() should be used to determine such.
+   * @return  the data stored in this byte[] is likely not all usable - method getUsableBits() should be used to determine such.
    */
   byte[] getData() {
     return data;
@@ -872,16 +871,14 @@ public class EncodedElement {
    * @param inputA Array containing input values.
    * @param inputBits Array containing number of bits to use for each index
    * packed. This array should be equal in size to the inputA array.
-   * @param inputOffset Index of first usable index.
-   * @param countA Number of indices to pack.
-   * @param startPosIn First usable bit-level index in destination array(byte
-   * index = startPosIn/8, bit within that byte = startPosIn%8)
+   * @param inputIndex Index of first usable index.
+   * @param inputCount Number of indices to pack.
+   * @param destPos First usable bit-level index in destination array(byte index = startPosIn/8, bit within that byte = destPos)
    * @param dest Destination array to store input values in. This array *must*
    * be large enough to store all values or this method will fail in an
    * undefined manner.
    */
-  protected static void packIntByBits(int[] inputA, int[] inputBits, int inputIndex,
-    int inputCount, int destPos, byte[] dest) {
+  protected static void packIntByBits(int[] inputA, int[] inputBits, int inputIndex, int inputCount, int destPos, byte[] dest) {
     int origInputIndex = inputIndex;
     inputIndex = packIntByBitsToByteBoundary(inputA, inputBits, inputIndex, inputCount,
     destPos, dest);
