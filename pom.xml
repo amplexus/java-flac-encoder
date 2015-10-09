@@ -3,14 +3,40 @@
 
   <groupId>net.sourceforge.javaflacencoder</groupId>
   <artifactId>java-flac-encoder</artifactId>
-  <version>0.3.6-SNAPSHOT</version>
+  <version>0.3.6</version>
   <packaging>jar</packaging>
 
   <name>java-flac-encoder</name>
 
+  <url>https://github.com/amplexus/java-flac-encoder</url>
+  <description>
+    javaFlacEncoder is a pure java implementation of a FLAC encoder library. It is designed to allow third-party java applications to enable flac encoding without resorting to use of JNI or scripted file conversions. Additionally, a basic console wav->flac encoding tool is included as part of this package.
+    Original project can be found here: http://javaflacencoder.sourceforge.net/
+  </description>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <licenses>
+    <license>
+      <name>GNU LGPL(v2.1)</name>
+      <url>https://github.com/amplexus/java-flac-encoder/blob/master/LICENSE</url>
+    </license>
+  </licenses>
+
+  <issueManagement>
+    <system>Sourceforge</system>
+    <url>http://sourceforge.net/p/javaflacencoder/bugs/</url>
+  </issueManagement>
+
+  <developers>
+    <developer>
+      <id>http://sourceforge.net/u/plwww/profile/</id>
+      <name>Preston Lacey</name>
+      <timezone>+9</timezone>
+    </developer>
+  </developers>
 
   <scm>
     <connection>scm:git:git://github.com/amplexus/java-flac-encoder.git</connection>
@@ -19,42 +45,41 @@
   </scm>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.2.2</version>
-          <configuration>
-          <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>attach-sources</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.2.2</version>
+        <configuration>
+        <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+          <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
   <distributionManagement>
