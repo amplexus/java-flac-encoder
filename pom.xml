@@ -3,7 +3,7 @@
 
   <groupId>net.sourceforge.javaflacencoder</groupId>
   <artifactId>java-flac-encoder</artifactId>
-  <version>0.3.7</version>
+  <version>0.3.8</version>
   <packaging>jar</packaging>
 
   <name>java-flac-encoder</name>
