@@ -26,7 +26,7 @@ import java.io.File;
  * It accepts several flags and parameters to alter the encoding configuration.
  *
  * @author Preston Lacey
- * 
+ *
  */
 public class FLAC_ConsoleFileEncoder {
   /** flag to display help */
@@ -46,7 +46,7 @@ public class FLAC_ConsoleFileEncoder {
   /** flag to specify subframe type to use. Must be followed by a valid type
    * as given by the fields TYPE_*.
    */
-  public static String SUBFRAME_TYPE = "-sourceforge";
+  public static String SUBFRAME_TYPE = "-sf";
   /** LPC Subframe type identifier string */
   public static String TYPE_LPC = "lpc";
   /** Fixed Subframe type identifier string */
@@ -174,7 +174,7 @@ public class FLAC_ConsoleFileEncoder {
     "  -lpcmax <x>   maximum LPC order, where <x> is an integer in range (1-32)\n"+
     "  -Threads <x>  Specify whether to use threads. 0 turns threading off, greater\n"+
     "                than 0 turns threading on\n"+
-    "  -sourceforge <type>    Specify which subframe type to use, where <type> may be:\n"+
+    "  -sf <type>    Specify which subframe type to use, where <type> may be:\n"+
     "      exhaustive(this is default and recommended)\n"+
     "      fixed\n"+
     "      lpc\n"+

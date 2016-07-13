@@ -32,7 +32,7 @@ public class FLACStreamController {
   volatile boolean flacStreamIsOpen = false;
 
   private final ReentrantLock streamLock = new ReentrantLock();
-  
+
   /* Object to write results to. Must be set before opening stream */
   private FLACOutputStream out = null;
 
@@ -109,6 +109,7 @@ public class FLACStreamController {
         this.writeDataToOutput(streamInfo);
       }
       flacStreamIsOpen = false;
+      out.close();
     } finally {
        streamLock.unlock();
     }
@@ -128,7 +129,7 @@ public class FLACStreamController {
    * @throws IOException
    */
   private int writeDataToOutput(EncodedElement data) throws IOException {
-    
+
     int writtenBytes = 0;
     int offset = 0;
     EncodedElement current = data;

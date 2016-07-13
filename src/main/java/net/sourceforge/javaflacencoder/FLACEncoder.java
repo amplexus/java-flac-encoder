@@ -675,7 +675,8 @@ public class FLACEncoder {
       int[] block = ber.samples;
       available += block.length/channels;
     }
-    available += unfilledRequest.count;
+    if (unfilledRequest != null)
+      available += unfilledRequest.count;
     return available;
   }
 
