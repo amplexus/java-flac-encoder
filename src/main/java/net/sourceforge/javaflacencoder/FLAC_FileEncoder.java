@@ -19,11 +19,12 @@
 
 package net.sourceforge.javaflacencoder;
 import java.io.File;
-import javax.sound.sampled.AudioInputStream;
+import java.io.IOException;
+
 import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
 /**
  * FLAC_FileEncoder is a class to encode an input wav File to an output Flac
  * file. It allows the EncodingConfiguration to be set only once, prior to
@@ -166,7 +167,14 @@ public class FLAC_FileEncoder {
       status = Status.UNSUPPORTED_FILE;
     }finally {
       if(status != Status.FULL_ENCODE)
+      {
+        try {
+          sin.close();
+        }catch (IOException e) {
+          //Nothing to do, close failed
+        }
         return status;
+      }
     }
     try {
       format = sin.getFormat();
@@ -187,6 +195,14 @@ public class FLAC_FileEncoder {
       else
         throw e;
     }
+    finally {
+      try {
+        sin.close();
+      }catch (IOException e) {
+        //Nothing to do, close failed
+      }
+    }
+    
     return status;
   }
 
